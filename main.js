@@ -44,15 +44,15 @@ const Objeto5 = new Usuario(5, "Alberto", "Ferraro", "alber@gmail.com", 55555)
 
 const Objeto6 = new Usuario(6, "Pedro", "Corola", "corola@gmail.com", 66666)
 
-const Usuarios = []
-console.log(Usuarios)
-Usuarios.push(Objeto1, Objeto2, Objeto3, Objeto4, Objeto5, Objeto6)
+const Usuario = []
+console.log(Usuario)
+Usuario.push(Objeto1, Objeto2, Objeto3, Objeto4, Objeto5, Objeto6)
 
 function agregarUsuarios() {
-    let nombreIngresado = prompt("Ingrese la Marca del Automotor")
-    let apellidoIngresado = prompt("Ingrese el Modelo del auto")
-    let emailIngresado = parseInt(prompt("Ingrese el precio del Automotor"))
-    let contraseniaIngresado = parseInt(localStorage()).value
+    let nombreIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
+    let apellidoIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
+    let emailIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
+    let contraseniaIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
     const usuarioNuevo = new Usuarios(id.length+1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
     usuarioNuevo.mostrarDatosObjetos()
     console.log(usuarioNuevo)
@@ -65,28 +65,3 @@ function verUsuarios(array) {
         console.log(usuario.id, usuario.nombre, usuario.apellido, usuario.email, usuario.contraseña)
     }
 }
-
-//contenedor de Template Strings
-let nombreIngresado = { id: "", nombre: "", precio: "" }
-let contenedor = document.createElement("div");
-
-contenedor.innerHTML = `
-<div class="row">
-        <div class="col">
-            <input type="text" id="${validacionNombre}" class="form-control bg-light" placeholder="First name" aria-label="Ingrese su nombre">
-        </div>
-        <div class="col">
-            <input type="text" id="${validacionApellido}" class="form-control bg-light"  placeholder="Last name" aria-label="Ingrese su apellido">
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label bg-light">Email address</label>
-        <input type="email" class="form-control" id="${validacionMail}" placeholder="ejemplo@ejemplo.com">
-    </div>
-    <label for="inputPassword5" class="form-label bg-light">Password</label>
-    <input type="password" id="${validacionPassword}" class="form-control" aria-labelledby="passwordHelpBlock">
-    <div id="passwordHelpBlock" class="form-text">
-        de 8 a 20 caracteres.
-    </div>`
-
-document.body.appendChild(contenedor)
