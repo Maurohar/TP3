@@ -2,52 +2,14 @@
 let l = localStorage;
 
 
-//Agarrando elementos del DOM
-//let nombreUsuario = document.getElementById("validacionNombre").value
-//let apellidoUsuario = document.getElementById("validacionApellido").value
-//let emailUsuario = document.getElementById("validacionMail").value
-//let contraseniaUsuario = document.getElementById("validacionPassword").value
-//let enviarUsuario = document.getElementById("botonEnviar").value
+ //Agarrando elementos del DOM
+let nombreUsuario = document.getElementById("validacionNombre").value
+let apellidoUsuario = document.getElementById("validacionApellido").value
+let emailUsuario = document.getElementById("validacionMail").value
+let contraseniaUsuario = document.getElementById("validacionPassword").value
+let enviarUsuario = document.getElementById("botonEnviar").value
 
 
-const form = document.querySelector('#idFormulario');
-const submitButton = document.querySelector('#botonEnviar');
-
-// Agregar un evento de escucha al botón de enviar
-submitButton.addEventListener('click', function (event) {
-    event.preventDefault(); // Evita el envío del formulario por defecto
-
-    // Realizar la validación de los campos del formulario
-    if (validarFormulario()) {
-        // Crear un objeto con los valores del formulario
-        const formData = {
-            nombre: document.querySelector('#validacionNombre').value,
-            apellido: document.querySelector('#validacionApellido').value,
-            email: document.querySelector('#validacionMail').value,
-            contrasenia: document.querySelector('#validacionPassword').value,
-            boton: document.querySelector('#botonEnviar').value,
-        };
-        console.log()
-        // Convertir el objeto en una cadena JSON
-        const formDataJSON = JSON.stringify(formData);
-
-        // Almacenar la cadena JSON en el localStorage
-        localStorage.setItem('formularioData', formDataJSON);
-
-        // Mostrar un mensaje de éxito o redirigir a otra página
-        alert('Formulario enviado correctamente');
-
-        // Restablecer el formulario
-        form.reset();
-    }
-});
-
-// Función para validar el formulario (debes implementarla según tus requisitos)
-function validarFormulario() {
-    // Aquí puedes agregar la lógica de validación de tus campos
-    // Retorna true si la validación es exitosa, de lo contrario, false
-    return true;
-}
 
 
 class Usuarios {
@@ -68,21 +30,21 @@ class Usuarios {
 
 //interaciones con los autos.
 
-const Objeto1 = new Usuarios.localStorage(1, "Mauro", "Harmitton", "mauro.harmittonbr@gmail.com", 11111)
+const Objeto1 = new Usuarios(1, "Mauro", "Harmitton", "mauro.harmittonbr@gmail.com", 11111)
 
 const Objeto2 = new Usuarios(2, "Pepe", "Benedetti", "pepebenedeti@gmail.com", 22222)
 
 const Objeto3 = new Usuarios(3, "Juan", "Diablo", "juand@gmail.com", 33333)
 
-const Objeto4 = new Usuarios(4, "Pagani", "Zonda", 44444)
+const Objeto4 = new Usuarios(4, "Pagani", "Zonda", "pagani@gmail.com" , 44444)
 
-const Objeto5 = new Usuarios(5, "Alberto", "Ferraro", 55555)
+const Objeto5 = new Usuarios(5, "Alberto", "Ferraro", "alber@gmail.com", 55555)
 
-const Objeto6 = new Usuarios(6, "Toyota", "Corola", 66666)
+const Objeto6 = new Usuarios(6, "Pedro", "Corola", "corola@gmail.com", 66666)
 
 const Usuarios = []
 console.log(Usuarios)
-consesionario.push(Objeto1, Objeto2, Objeto3, Objeto4, Objeto5, Objeto6)
+Usuarios.push(Objeto1, Objeto2, Objeto3, Objeto4, Objeto5, Objeto6)
 console.log(Usuarios)
 
 function agregarUsuarios() {
@@ -90,7 +52,7 @@ function agregarUsuarios() {
     let apellidoIngresado = prompt("Ingrese el Modelo del auto")
     let emailIngresado = parseInt(prompt("Ingrese el precio del Automotor"))
     let contraseniaIngresado = parseInt(localStorage()).value
-    const usuarioNuevo = new Usuarios(consesionario.length + 1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
+    const usuarioNuevo = new Usuarios(id.length + 1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
     autoNuevo.mostrarDatosAutos()
     console.log(usuarioNuevo)
     Usuarios.push(usuarioNuevo)
