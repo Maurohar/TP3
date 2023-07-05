@@ -12,7 +12,7 @@ let enviarUsuario = document.getElementById("botonEnviar").value
 
 
 
-class Usuarios {
+class Usuario {
     constructor(id, nombre, apellido, email, contrasenia) {
         this.id = id,
             this.nombre = nombre,
@@ -52,8 +52,8 @@ function agregarUsuarios() {
     let apellidoIngresado = prompt("Ingrese el Modelo del auto")
     let emailIngresado = parseInt(prompt("Ingrese el precio del Automotor"))
     let contraseniaIngresado = parseInt(localStorage()).value
-    const usuarioNuevo = new Usuarios(id.length + 1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
-    autoNuevo.mostrarDatosAutos()
+    const usuarioNuevo = new Usuarios(id.length+1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
+    usuarioNuevo.mostrarDatosObjetos()
     console.log(usuarioNuevo)
     Usuarios.push(usuarioNuevo)
 }
@@ -64,6 +64,7 @@ function verUsuarios(array) {
         console.log(usuarios.id, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.contraseña)
     }
 }
+
 //contenedor de Template Strings
 let nombreIngresado = { id: "", nombre: "", precio: "" }
 let contenedor = document.createElement("div");
