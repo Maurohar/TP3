@@ -59,9 +59,9 @@ function agregarUsuarios() {
 }
 
 function verUsuarios(array) {
-    console.log(`Nuestros Autos son: `)
-    for (let usuarios of Usuarios) {
-        console.log(usuarios.id, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.contraseña)
+    console.log(`Registro de Usuario, email y contraseña`)
+    for (let usuario of Usuarios) {
+        console.log(usuario.id, usuario.nombre, usuario.apellido, usuario.email, usuario.contraseña)
     }
 }
 
