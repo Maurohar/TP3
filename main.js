@@ -48,20 +48,20 @@ const Usuario = []
 console.log(Usuario)
 Usuario.push(Objeto1, Objeto2, Objeto3, Objeto4, Objeto5, Objeto6)
 
-function agregarUsuarios() {
+function agregarUsuario() {
     let nombreIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
     let apellidoIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
     let emailIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
     let contraseniaIngresado = localStorage.setItem("Usuarios",JSON.stringify(Usuario))
-    const usuarioNuevo = new Usuarios(id.length+1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
+    const usuarioNuevo = new Usuario(id.length+1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
     usuarioNuevo.mostrarDatosObjetos()
     console.log(usuarioNuevo)
-    Usuarios.push(usuarioNuevo)
+    Usuario.push(usuarioNuevo)
 }
 
-function verUsuarios(array) {
+function verUsuario(array) {
     console.log(`Registro de Usuario, email y contraseña`)
-    for (let usuario of Usuarios) {
+    for (let usuario of Usuario) {
         console.log(usuario.id, usuario.nombre, usuario.apellido, usuario.email, usuario.contraseña)
     }
 }
