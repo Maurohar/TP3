@@ -2,35 +2,15 @@
 let l = localStorage;
 
 const formularioContacto = document.getElementById("idFormulario");
-
+const btnEnviar = document.getElementById("botonEnviar")
 
 formularioContacto.addEventListener("submit",(e)=>{
-    e.preventdefault();
-    const email = document.getElementById("email").value;
-    if(email.trim().lenght <= 3 || !email.includes("@")){
-    mostrarNotificacion("notificacionEmail", " el Mail debe tener más de 3 letras y contener '@'")
-    }
+    e.preventDefault();
+    agregarUsuario();
+
 });
 
 //Agarrando elementos del DOM
-let getData = function () {
-    let nombreUsuario = document.getElementById("validacionNombre").value
-    let apellidoUsuario = document.getElementById("validacionApellido").value
-    let emailUsuario = document.getElementById("validacionMail").value
-    let contraseniaUsuario = document.getElementById("validacionPassword").value
-    let enviarUsuario = document.getElementById("botonEnviar").value
-}
-
-
-function enviarDatosLocalStorage(obj1, obj2, obj3, obj4, obj5) {
-    // Almacenar las variables individualmente en el localStorage
-    localStorage.setItem('User', JSON.stringify(obj1));
-    localStorage.setItem('User', JSON.stringify(obj2));
-    localStorage.setItem('User', JSON.stringify(obj3));
-    localStorage.setItem('User', JSON.stringify(obj4));
-    localStorage.setItem('User', JSON.stringify(obj5));
-}
-
 
 class Usuario {
     constructor(id, nombre, apellido, email, contrasenia) {
@@ -62,15 +42,23 @@ const Objeto5 = new Usuario(5, "Alberto", "Ferraro", "alber@gmail.com", 55555)
 
 const Objeto6 = new Usuario(6, "Pedro", "Corola", "corola@gmail.com", 66666)
 
+const usuarios = [Objeto1, Objeto2, Objeto3, Objeto4, Objeto5, Objeto6]
+
+localStorage.setItem('usuarios',JSON.stringify(usuarios))
+
+
+
 function agregarUsuario() {
-    let nombreIngresado = localStorage.setItem("Usuarios", JSON.stringify(Usuario))
-    let apellidoIngresado = localStorage.setItem("Usuarios", JSON.stringify(Usuario))
-    let emailIngresado = localStorage.setItem("Usuarios", JSON.stringify(Usuario))
-    let contraseniaIngresado = localStorage.setItem("Usuarios", JSON.stringify(Usuario))
-    const usuarioNuevo = new Usuario(id.length + 1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
+    let nombreUsuario = document.getElementById("validacionNombre").value
+    let apellidoUsuario = document.getElementById("validacionApellido").value
+    let emailUsuario = document.getElementById("validacionMail").value
+    let contraseniaUsuario = document.getElementById("validacionPassword").value
+    
+    const usuarioNuevo = new Usuario(usuarios.length + 1, nombreUsuario, apellidoUsuario, emailUsuario, contraseniaUsuario)
     usuarioNuevo.mostrarDatosObjetos()
     console.log(usuarioNuevo)
-    Usuario.push(usuarioNuevo)
+    usuarios.push(usuarioNuevo) 
+    localStorage.setItem("usuarios", JSON.stringify(usuarios))
 }
 
 function verUsuario(array) {
